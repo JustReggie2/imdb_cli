@@ -7,10 +7,11 @@ class Scraper
 
     # binding.pry
     movies = []
-    titles = doc.css(".trailer-caption").children.text.split("\n ")
+    titles = doc.css(".trailer-caption").children.text.split("\n ").reject{|t| t.empty? || t == "   "}
     trailer_link = doc.css(".trailer-image").collect {|tl| tl.css("a").attr("href").value}
+    movie_info = doc.css(".trailer-caption").collect {|ml| ml.css("a").attr("href").value}
 binding.pry
-    
+
 
   end
 
