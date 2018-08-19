@@ -1,6 +1,7 @@
 class ImdbaseCli
 
   def call
+    Scraper.scrape_trailers
     list_trailers
   end
 
