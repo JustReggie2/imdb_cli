@@ -2,23 +2,30 @@ class ImdbaseCli
 
   def call
     Scraper.scrape_trailers
-    list_trailers
-  end
 
-  def list_trailers
     u_i = nil
     puts "Please type 'list' to see recent movie trailers"
     while u_i != "exit"
       u_i = gets.strip.downcase
       case u_i
       when "list"
-        puts "Movie trailers listed."
+        list_trailers
         movie_info
       when "exit"
         puts "Thank you for using gem!"
       else
         puts "Invalid Entry!"
       end
+    end
+    list_trailers
+  end
+
+  def list_trailers
+    Movie.all.sort! {|a, b| a.title <=> b.title}
+    Movie.all.each_with_index do |movie, index|
+      puts "#{index+=1}. #{movie.title}"
+        puts "https://www.imdb.com#{movie.trailer_link}"
+        puts "https://www.imdb.com#{movie.movie_info}"
     end
   end
 
