@@ -24,8 +24,8 @@ class ImdbaseCli
     Movie.all.sort! {|a, b| a.title <=> b.title}
     Movie.all.each_with_index do |movie, index|
       puts "#{index+=1}. #{movie.title}"
-        puts "https://www.imdb.com#{movie.trailer_link}"
-        puts "https://www.imdb.com#{movie.movie_info}"
+        puts movie.trailer_link
+        puts movie.movie_info
     end
   end
 
