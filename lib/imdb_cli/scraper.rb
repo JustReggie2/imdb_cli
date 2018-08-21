@@ -9,22 +9,19 @@ class Scraper
     movies = []
 
     titles = doc.css(".trailer-caption").children.text.split("\n ").reject{|t| t.empty? || t == "   "}
-    trailer_link = doc.css(".trailer-image").collect {|tl| tl.css("a").attr("href").value}
-    movie_info = doc.css(".trailer-caption").collect {|ml| ml.css("a").attr("href").value}
+    trailer_links = doc.css(".trailer-image").collect {|tl| tl.css("a").attr("href").value}
+    movies_links = doc.css(".trailer-caption").collect {|ml| ml.css("a").attr("href").value}
 
-    x = 1
-    titles.each do |title|
-      movies << {:title => title, :trailer_link => trailer_link[x], :movie_info => movie_info[x]}
-      x += 1
+
+    titles.each.with_index do |title, i|
+      Movie.new(title, "https://www.imdb.com#{trailer_links[i]}", "https://www.imdb.com#{movies_links[i]}")
+      # movies << {
+      #   :title => title,
+      #    :trailer_link => "https://www.imdb.com#{trailer_links[i]}",
+      #  :movie_info => movie_info[i]}
     end
 
-    movies.each do |info|
-      # binding.pry
-      title = info[:title]
-      trailer_link = info[:trailer_link]
-      movie_info = info[:movie_info]
-      Movie.new(title, trailer_link, movie_info)
-    end
+
 # binding.pry
   end
 
