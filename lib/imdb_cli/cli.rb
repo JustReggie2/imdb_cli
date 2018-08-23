@@ -4,7 +4,7 @@ class ImdbaseCli
     Scraper.scrape_trailers
 
     u_i = nil
-    puts "Please type 'list' to see recent movie trailers"
+    puts "Please type 'list' to see most popular movie trailers"
     while u_i != "exit"
       u_i = gets.strip.downcase
       case u_i
@@ -21,11 +21,11 @@ class ImdbaseCli
   end
 
   def list_trailers
-    Movie.all.sort! {|a, b| a.title <=> b.title}
+    # Movie.all.sort! {|a, b| a.title <=> b.title}
     Movie.all.each_with_index do |movie, index|
       puts "#{index+=1}. #{movie.title}"
-        puts movie.trailer_link
-        puts movie.movie_info
+        # puts movie.trailer_link
+        # puts movie.movie_info
     end
   end
 
