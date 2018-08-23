@@ -13,7 +13,7 @@ class Scraper
     movies_links = doc.css(".trailer-caption").collect {|ml| ml.css("a").attr("href").value}
 
 
-    titles.each.with_index do |title, i|
+    titles[1..100].each.with_index do |title, i|
       Movie.new(title, "https://www.imdb.com#{trailer_links[i]}", "https://www.imdb.com#{movies_links[i]}")
       # movies << {
       #   :title => title,
