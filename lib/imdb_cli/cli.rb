@@ -32,17 +32,18 @@ class ImdbaseCli
   def movie_info
     u_i = nil
     puts "For more info on movie, please enter corresponding number."
-    while u_i != "exit"
+    # while u_i != "exit"
       u_i = gets.strip.to_i
-      case u_i
-      when integer
-        #select corresponding movie
-      when "exit"
+      if u_i > 0 && u_i <= Movie.all.size
+        Movie.all.each do |movie|
+          puts "#{movie[u_i-=1].title}"
+        end
+      elsif u_i == "exit"
         list_trailers
       else
         puts "Invalid Entry!"
       end
-    end
+    # end
   end
 
 end
