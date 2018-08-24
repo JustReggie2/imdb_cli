@@ -2,7 +2,7 @@ class ImdbaseCli
 
   def call
     Scraper.scrape_trailers
-
+    Scraper.scrape_movie_info
     u_i = nil
     puts "Please type 'list' to see most popular movie trailers"
     while u_i != "exit"
@@ -31,19 +31,17 @@ class ImdbaseCli
 
   def movie_info
     u_i = nil
-    puts "For more info on movie, please enter corresponding number."
-    # while u_i != "exit"
+    puts "For more info on a movie, please enter corresponding number."
       u_i = gets.strip.to_i
       if u_i > 0 && u_i <= Movie.all.size
-        Movie.all.each do |movie|
+        movie = Movie.all
           puts "#{movie[u_i-=1].title}"
-        end
       elsif u_i == "exit"
         list_trailers
       else
         puts "Invalid Entry!"
       end
-    # end
+      movie_info
   end
 
 end
