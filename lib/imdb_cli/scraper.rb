@@ -28,8 +28,12 @@ def self.scrape_movie_info
     html = open("https://www.imdb.com#{movie_link}")
     doc = Nokogiri::HTML(html)
 
-# binding.pry
+binding.pry
 
+  # year = doc.css(".title_wrapper a").children[0].text
+  # genre = doc.css(".title_wrapper a").children[1].text
+  # all genres = doc.css(".title_wrapper a").children[1..3].text
+  # start for summary = doc.css(".plot_summary")
   end
 end
 
