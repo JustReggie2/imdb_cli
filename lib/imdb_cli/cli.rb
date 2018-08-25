@@ -2,7 +2,11 @@ class ImdbaseCli
 
   def call
     Scraper.scrape_trailers
-    Scraper.scrape_movie_info
+    puts "Welcome to IMDB's Currently Most Popular Trailers"
+    start
+  end
+
+  def start
     u_i = nil
     puts "Please type 'list' to see most popular movie trailers"
     while u_i != "exit"
@@ -36,6 +40,7 @@ class ImdbaseCli
       if u_i > 0 && u_i <= Movie.all.size
         movie = Movie.all
           puts "#{movie[u_i-=1].title}"
+          puts "#{movie[u_i-=1].year}"
       elsif u_i == "exit"
         list_trailers
       else
