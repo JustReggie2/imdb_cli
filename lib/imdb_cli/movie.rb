@@ -19,6 +19,14 @@ class Movie
     @doc ||= Nokogiri::HTML(open(self.movie_info))
   end
 
+  def director
+    @director ||= doc.css(".credit_summary_item a")[0].children.text
+  end
+
+  def summary
+    @summary ||= doc.css(".summary_text").children.text.strip
+  end
+
   
 
 end
