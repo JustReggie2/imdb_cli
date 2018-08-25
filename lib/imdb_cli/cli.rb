@@ -24,9 +24,9 @@ class ImdbaseCli
     list_trailers
   end
 
-  def list_trailers
+  def list_trailers(num)
     # Movie.all.sort! {|a, b| a.title <=> b.title}
-    Movie.all.each_with_index do |movie, index|
+    Movie.all.each_with_index(0..num-1) do |movie, index|
       puts "#{index+=1}. #{movie.title}"
         # puts movie.trailer_link
         # puts movie.movie_info
