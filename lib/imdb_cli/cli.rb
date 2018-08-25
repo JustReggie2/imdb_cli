@@ -8,11 +8,11 @@ class ImdbaseCli
 
   def start
     u_i = nil
-    puts "Please type 'list' to see most popular movie trailers"
+    puts "What Top trailers would you like to see? 10, 25 or 50?"
     while u_i != "exit"
-      u_i = gets.strip.downcase
+      u_i = gets.strip.to_i
       case u_i
-      when "list"
+      when 10
         list_trailers
         movie_info
       when "exit"
