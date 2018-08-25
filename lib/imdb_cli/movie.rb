@@ -27,6 +27,12 @@ class Movie
     @summary ||= doc.css(".summary_text").children.text.strip
   end
 
-  
+  def genre
+    @genre ||= doc.css(".title_wrapper a").children[1].text
+  end
+
+  def year
+    @year ||= doc.css(".title_wrapper a").children[0].text
+  end
 
 end
