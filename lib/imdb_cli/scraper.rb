@@ -7,10 +7,10 @@ class Scraper
 
     titles = doc.css(".trailer-caption").children.text.split("\n ").reject{|t| t.empty? || t == "   "}
     trailer_links = doc.css(".trailer-image").collect {|tl| tl.css("a").attr("href").value}
-    @movie_links = doc.css(".trailer-caption").collect {|ml| ml.css("a").attr("href").value}
+    movie_links = doc.css(".trailer-caption").collect {|ml| ml.css("a").attr("href").value}
 
-    titles[1..100].each.with_index do |title, i|
-      Movie.new(title, "https://www.imdb.com#{trailer_links[i]}", "https://www.imdb.com#{@movie_links[i]}")
+    titles[0..99].each.with_index do |title, i|
+      Movie.new(title, "https://www.imdb.com#{trailer_links[i]}", "https://www.imdb.com#{movie_links[i]}")
     end
   end
 end
