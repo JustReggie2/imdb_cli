@@ -14,11 +14,11 @@ class ImdbCli::Movie
   def self.all
     @@all
   end
-
+  # finds specific movie object to pull correct second level info from scrape
   def self.find(id)
     self.all[id-1]
   end
-
+  # allows scrape of each movie objects individual page utilizing methods below
   def doc
     @doc = Nokogiri::HTML(open(self.movie_info))
   end
