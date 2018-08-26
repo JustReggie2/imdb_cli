@@ -7,7 +7,6 @@ class ImdbCli::ImdbaseCli
   end
 
   def start
-    # u_i = nil
     puts "What Top trailers would you like to see? 10, 25 or 50?"
       u_i = gets.strip.to_i
       case u_i
@@ -47,7 +46,6 @@ class ImdbCli::ImdbaseCli
   end
 
   def list_trailers(num)
-    # Movie.all.sort! {|a, b| a.title <=> b.title}
     ImdbCli::Movie.all[0..num-1].each_with_index do |movie, index|
       puts "#{index+=1}. #{movie.title}"
     end
