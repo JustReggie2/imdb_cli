@@ -3,4 +3,4 @@ require_relative '../lib/imdb_cli'
 
 
 
-ImdbaseCli.new.call
+ImdbCli::ImdbaseCli.new.call

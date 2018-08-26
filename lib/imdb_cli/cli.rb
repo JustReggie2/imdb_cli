@@ -1,7 +1,7 @@
-class ImdbaseCli
+class ImdbCli::ImdbaseCli
 
   def call
-    Scraper.scrape_trailers
+    ImdbCli::Scraper.scrape_trailers
     puts "Welcome to IMDB's Currently Most Popular Trailers"
     start
   end
@@ -48,7 +48,7 @@ class ImdbaseCli
 
   def list_trailers(num)
     # Movie.all.sort! {|a, b| a.title <=> b.title}
-    Movie.all[0..num-1].each_with_index do |movie, index|
+    ImdbCli::Movie.all[0..num-1].each_with_index do |movie, index|
       puts "#{index+=1}. #{movie.title}"
     end
   end
@@ -58,7 +58,7 @@ class ImdbaseCli
     puts "For more info on a movie, please enter corresponding number."
       u_i = gets.strip.to_i
       if u_i > 0 && u_i <= num
-        movie = Movie.find(u_i)
+        movie = ImdbCli::Movie.find(u_i)
           puts "#{movie.title} (#{movie.year})"
           puts ""
           puts "  Summary:  #{movie.summary}"
