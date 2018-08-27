@@ -4,7 +4,7 @@ class ImdbCli::Scraper
   def self.scrape_trailers
     html = open(IMDB_URL)
     doc = Nokogiri::HTML(html)
-
+    # titles could be refractored better using what was figured out on movie_info scrape
     titles = doc.css(".trailer-caption").children.text.split("\n ").reject{|t| t.empty? || t == "   "}
     trailer_links = doc.css(".trailer-image").collect {|tl| tl.css("a").attr("href").value}
     movie_links = doc.css(".trailer-caption").collect {|ml| ml.css("a").attr("href").value}
