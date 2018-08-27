@@ -2,13 +2,17 @@ class ImdbCli::ImdbaseCli
 
   def call
     ImdbCli::Scraper.scrape_trailers
+
     puts "Welcome to IMDB's Currently Most Popular Trailers"
+
     start
   end
 
   def start
     puts "What Top trailers would you like to see? 10, 25 or 50?"
+
       u_i = gets.strip.to_i
+
       case u_i
       when 10
         puts ""
@@ -28,10 +32,12 @@ class ImdbCli::ImdbaseCli
       else
         puts "Invalid Entry!"
       end
+
     puts ""
     puts "Would you like to see trailers list again? (Y/N)"
 
     u_i = gets.strip.downcase
+
       case u_i
       when "y"
         start
@@ -54,7 +60,9 @@ class ImdbCli::ImdbaseCli
   def movie_info(num)
     puts ""
     puts "For more info on a movie, please enter corresponding number."
+
       u_i = gets.strip.to_i
+
       if u_i > 0 && u_i <= num
         movie = ImdbCli::Movie.find(u_i)
           puts "#{movie.title} (#{movie.year})"
@@ -70,5 +78,4 @@ class ImdbCli::ImdbaseCli
         movie_info(num)
       end
   end
-
 end
