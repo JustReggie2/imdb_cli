@@ -9,6 +9,7 @@ class ImdbCli::ImdbaseCli
   end
 
   def start
+    puts ""
     puts "What Top trailers would you like to see? 10, 25 or 50?"
 
       u_i = gets.strip.to_i
@@ -34,7 +35,7 @@ class ImdbCli::ImdbaseCli
       end
 
     puts ""
-    puts "Would you like to see trailers list again? (Y/N)"
+    puts "Would you like to see trailers list? (Y/N)"
 
     u_i = gets.strip.downcase
 
