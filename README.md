@@ -1,8 +1,11 @@
 # ImdbCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/imdb_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+A CLI for IMDB Trailers page, that will scrape the current most popular trailers and provide Top 10, 25, and 50 list. Once you have list you will be able to delve further to see more information on the movie along with link to watch trailer.
 
-TODO: Delete this and the text above, and describe your gem
+# Motivation
+
+I enjoy movie or show trailers immensely and thought this would be a good first project.
+
 
 ## Installation
 
