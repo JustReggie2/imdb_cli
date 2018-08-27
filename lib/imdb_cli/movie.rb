@@ -4,7 +4,7 @@ class ImdbCli::Movie
 
   @@all = []
 
-  def initialize(title=nil, trailer_link=nil, movie_info=nil)
+  def initialize(title = nil, trailer_link = nil, movie_info = nil)
     @title = title
     @trailer_link = trailer_link
     @movie_info = movie_info
