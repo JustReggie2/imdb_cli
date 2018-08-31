@@ -1,11 +1,11 @@
 class ImdbCli::Movie
-  attr_accessor :title, :trailer_link, :movie_info
+  attr_accessor :title, :movie_info
 
   @@all = []
 
-  def initialize(title = nil, trailer_link = nil, movie_info = nil)
+  def initialize(title = nil, movie_info = nil)
     @title = title
-    @trailer_link = trailer_link
+    # @trailer_link = trailer_link
     @movie_info = movie_info
     @@all << self
   end
@@ -35,7 +35,11 @@ class ImdbCli::Movie
   end
 
   def year
+    # binding.pry
     @year = doc.css(".title_wrapper a").children[0].text
   end
 
+  def trailer_link
+    @trailer_link = doc.css(".slate a").attr("href").value
+  end
 end
