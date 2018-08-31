@@ -73,7 +73,7 @@ class ImdbCli::ImdbaseCli
           puts "  Director: #{movie.director}"
           puts "  Genre:    #{movie.genre}"
           puts ""
-          puts "  Trailer:  #{movie.trailer_link}"
+          puts "  Trailer:  https://www.imdb.com#{movie.trailer_link}"
       else
         puts "Invalid Entry!"
         movie_info(num)
