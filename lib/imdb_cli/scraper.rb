@@ -1,7 +1,7 @@
 class ImdbCli::Scraper
   IMDB_URL = "https://www.imdb.com/trailers"
 
-  def self.scrape_trailers
+  def self.scrape_movies
     html = open(IMDB_URL)
     doc = Nokogiri::HTML(html)
 
