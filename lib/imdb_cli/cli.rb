@@ -1,7 +1,7 @@
 class ImdbCli::ImdbaseCli
 
   def call
-    ImdbCli::Scraper.scrape_trailers
+    ImdbCli::Scraper.scrape_movies
 
     puts "Welcome to IMDB's Currently Most Popular Trailers"
 
@@ -16,20 +16,11 @@ class ImdbCli::ImdbaseCli
 
       case u_i
       when 10
-        puts ""
-        puts "Here are the current Popular Top 10 Trailers!"
-        list_trailers(10)
-        movie_info(10)
+        selection_output(10)
       when 25
-        puts ""
-        puts "Here are the current Popular Top 25 Trailers!"
-        list_trailers(25)
-        movie_info(25)
+        selection_output(25)
       when 50
-        puts ""
-        puts "Here are the current Popular Top 50 Trailers!"
-        list_trailers(50)
-        movie_info(50)
+        selection_output(50)
       else
         puts "Invalid Entry!"
       end
@@ -50,6 +41,12 @@ class ImdbCli::ImdbaseCli
         puts "Invalid Entry! Please try again."
         start
       end
+  end
+
+  def selection_output(num)
+    puts "\nHere are the current Popular Top #{num} Trailers!"
+    list_trailers(num)
+    movie_info(num)
   end
 
   def list_trailers(num)
